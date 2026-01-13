@@ -1,13 +1,12 @@
-const CACHE_NAME = "portfolio-cache-v1";
+const CACHE_NAME = "portfolio-cache-v2";
 
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js"
+  "/my-portfolio-pwa/",
+  "/my-portfolio-pwa/index.html",
+  "/my-portfolio-pwa/style.css",
+  "/my-portfolio-pwa/script.js"
 ];
 
-// Install
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -16,7 +15,6 @@ self.addEventListener("install", event => {
   );
 });
 
-// Fetch
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
